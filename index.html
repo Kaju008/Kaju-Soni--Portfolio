@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Kaju Soni - Personal Portfolio</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css?v=16">
+  <link rel="stylesheet" href="ui.css?v=16">
+</head>
+<body>
+  <!-- Minimalist load progress indicator -->
+  <div id="loader-container" class="loader-container">
+    <div id="progress-bar" class="progress-bar"></div>
+  </div>
+
+  <div class="canvas-dim" id="canvas-dim" aria-hidden="true"></div>
+  <div class="hero-scrim" id="hero-scrim" aria-hidden="true"></div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <a href="#about" class="mobile-nav-item" data-target="0.5">About Me</a>
+      <a href="#journey" class="mobile-nav-item">My Journey</a>
+      <a href="#work" class="mobile-nav-item">My Work</a>
+      <a href="#contact" class="mobile-nav-item">Contact</a>
+    </div>
+  </div>
+
+  <!-- UI Overlay Layer for Fixed Elements -->
+  <div id="ui-layer">
+    <!-- Header -->
+    <header id="main-header">
+      <div class="header-container">
+        <div class="header-left"></div>
+        <nav class="header-center" aria-label="Primary">
+          <div class="nav-pill">
+            <a href="#about" class="nav-item" data-target="0.5">About Me</a>
+            <a href="#journey" class="nav-item">My Journey</a>
+            <a href="#work" class="nav-item">My Work</a>
+            <a href="#contact" class="nav-item">Contact</a>
+          </div>
+        </nav>
+        <div class="header-right">
+          <a href="#contact" class="cta-button nav-item-cta">
+            <span class="cta-text">Let's Talk</span>
+            <div class="cta-icon">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </a>
+          <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" aria-label="Hero">
+      <div class="hero-content">
+        <div class="hero-text-block">
+          <span class="hero-eyebrow">Hello, I'm</span>
+          <h1 class="hero-name">
+            <span class="name-line"><span class="name-char">K</span><span class="name-char">a</span><span class="name-char">j</span><span class="name-char">u</span></span><br>
+            <span class="name-line"><span class="name-char">S</span><span class="name-char">o</span><span class="name-char">n</span><span class="name-char">i</span></span>
+          </h1>
+          <p class="hero-tagline">Every frame is a chance to make someone feel something.</p>
+          
+          <div class="role-rotator-container">
+            <div class="role-line-indicator"></div>
+            <span class="visually-hidden">Video Editor, Motion Designer, Visual Storyteller, Video Producer</span>
+            <div class="role-rotator" aria-hidden="true" id="role-rotator">
+              <span class="role-word active">Video Editor</span>
+              <span class="role-word">Motion Designer</span>
+              <span class="role-word">Visual Storyteller</span>
+              <span class="role-word">Video Producer</span>
+            </div>
+          </div>
+          <p class="hero-supporting">Turning raw footage and loose ideas into stories people remember.</p>
+        </div>
+      </div>
+      
+      <div class="scroll-cue" id="scroll-cue" aria-hidden="true">
+        <span>SCROLL</span>
+        <div class="scroll-line"><div class="scroll-dot"></div></div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" aria-label="About">
+      <div class="about-panel" id="about-panel">
+        <div class="animated-border" aria-hidden="true"></div>
+        
+        <div class="panel-glows" aria-hidden="true">
+          <div class="glow-magenta"></div>
+          <div class="glow-violet"></div>
+          <div class="glow-orange"></div>
+          <div class="light-sweep" id="light-sweep"></div>
+        </div>
+        
+        <div class="panel-inner">
+          <div class="about-image-col">
+            <div class="image-wrapper" id="about-image-wrapper">
+              <img src="assets/about-me.png" alt="Kaju Soni in sunglasses sitting casually on huge red 3D letters that spell About Me" id="about-image" loading="eager" decoding="async">
+              <div class="contact-shadow" id="contact-shadow"></div>
+            </div>
+          </div>
+          
+          <div class="about-text-col" id="about-text-col">
+            <h2 class="about-headline">Visuals that make people <span class="gradient-text">feel something.</span></h2>
+            <div class="about-divider" aria-hidden="true"></div>
+            <div class="about-body">
+              <p>I've always been drawn to the kind of visuals that stop a scroll, pull you into a moment, and for a few seconds turn the screen into another world. That's what I try to put into everything I make.</p>
+              <p>Eight-plus years in, my work spans end-to-end video production, visual storytelling, motion graphics and editing, across YouTube long-form and Shorts, social, brand, marketing and advertising creative.</p>
+              <p>Over time, the role has grown from making the work to leading it: guiding teams, shaping ideas, solving production problems, and carrying a concept from brief to final frame, at a pace of 60+ videos in a single month.</p>
+              <p>AI is the newest chapter. I experiment with generative image and video tools to widen what a creative team can imagine and make, with craft and storytelling always at the centre.</p>
+              <p>Outside work, I'm a serious food enthusiast and happiest among forests, trails and mountains. I'll happily trade a busy weekend for an unfamiliar road, a great meal, or a sunrise worth waking up for.</p>
+              <p style="opacity: 0.7; font-style: italic; margin-top: 16px;">Still curious. Still creating. Always chasing a better way to tell the next story.</p>
+            </div>
+            
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-card-number"><span class="counter" data-target="8">0</span>+</div>
+                <div class="stat-card-label">Years in creative production</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-card-number"><span class="counter" data-target="60">0</span>+</div>
+                <div class="stat-card-label">Videos delivered in a single month, with my team</div>
+              </div>
+              <a href="https://www.youtube.com/@JEEVedantu/shorts" target="_blank" rel="noopener" class="stat-card stat-card-link">
+                <div class="stat-card-number"><span class="counter" data-target="1">0</span>M+ <span class="stat-arrow">&#x2197;</span></div>
+                <div class="stat-card-label">Subscribers on the JEE Vedantu channel</div>
+              </a>
+            </div>
+            
+            <div class="action-row">
+              <a href="assets/Kaju_Soni_Resume.pdf" download="Kaju_Soni_Resume.pdf" class="resume-btn">
+                Resume
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1V9M6 9L2.5 5.5M6 9L9.5 5.5M1 11H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Scroll scrub track -->
+  <div class="scroll-track" id="scroll-track">
+    <div class="canvas-viewport">
+      <canvas id="sequence-canvas"></canvas>
+    </div>
+  </div>
+
+  <!-- Normal Flow Content -->
+  <div id="normal-flow">
+    <!-- Journey Section -->
+    <section id="journey" aria-label="My Journey">
+      <div class="ambient-bg">
+        <div class="ambient-orbs"></div>
+        <div class="ambient-grid"></div>
+        <canvas class="ambient-canvas"></canvas>
+        <div class="ambient-vignette"></div>
+      </div>
+      
+      <div class="journey-header">
+        <span class="journey-eyebrow">MY JOURNEY</span>
+        <h2 class="journey-title">Every role taught me a new way to tell a story.</h2>
+        <p class="journey-sub">A craft that kept growing.</p>
+        <div class="journey-summary">
+          <span class="journey-summary-chip">6 companies</span>
+          <span class="journey-summary-chip">8+ years</span>
+          <span class="journey-summary-chip">Fintech &middot; Edtech &middot; Healthcare &middot; News</span>
+        </div>
+      </div>
+      
+      <div class="journey-timeline" id="journey-timeline">
+        <div class="journey-line-track">
+          <div class="journey-line-progress" id="journey-line-progress"></div>
+          <div class="journey-line-pulse" id="journey-line-pulse"></div>
+        </div>
+        <div class="journey-timeline-entries" id="journey-timeline-entries">
+          <!-- Populated by journey.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" aria-label="My Works">
+      <div class="ambient-bg works-bg-override">
+        <div class="ambient-orbs"></div>
+        <div class="ambient-grid"></div>
+        <canvas class="ambient-canvas"></canvas>
+        <div class="ambient-vignette"></div>
+      </div>
+      <div class="works-bg-glow"></div>
+      
+      <div class="works-header-area">
+        <div class="works-header-img-wrapper">
+          <img src="assets/my-works.png?v=2" alt="My Works" class="my-works-header">
+        </div>
+        <div class="works-divider"></div>
+        <div class="works-meta">
+          <span class="works-label">SELECTED WORK &middot; 2024&ndash;2026</span>
+          <span class="works-counter" id="works-counter">01 / 21</span>
+        </div>
+      </div>
+      
+      <div class="carousel-container" id="carousel-container">
+        <div class="carousel-track" id="carousel-track">
+          <div class="carousel-track-inner" id="carousel-track-inner">
+            <!-- Cards populated by works.js -->
+          </div>
+        </div>
+        <div class="custom-cursor" id="custom-cursor">PLAY</div>
+      </div>
+      
+      <div class="carousel-progress-track"><div class="carousel-progress-line-fill"></div></div>
+
+      <div class="archive-cta-wrapper">
+        <p class="archive-cta-text">Still scrolling? There's more.</p>
+        <a href="https://drive.google.com/drive/folders/1c-_6du6HP95pwyeG2lpgEQ5V5sHbUWHY?usp=drive_link" target="_blank" rel="noopener" class="archive-cta-btn">
+          Explore the full archive
+          <span class="cta-arrow">&rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox hidden" aria-hidden="true">
+      <div class="lightbox-backdrop"></div>
+      <div class="lightbox-content-wrapper">
+        <button id="lightbox-close" class="lightbox-close" aria-label="Close video">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="lightbox-nav">
+          <button id="lightbox-prev" class="lightbox-arrow" aria-label="Previous">&larr;</button>
+          <button id="lightbox-next" class="lightbox-arrow" aria-label="Next">&rarr;</button>
+        </div>
+        <div id="lightbox-iframe-container" class="lightbox-iframe-container"></div>
+        <div id="lightbox-tap-hint" style="display:none; color:rgba(255,255,255,0.6); font-size:12px; margin-bottom:12px;">Tap video to play</div>
+        <div class="lightbox-footer">
+          <a href="#" id="lightbox-external-link" target="_blank" rel="noopener">Open on Instagram</a>
+          <button id="lightbox-fullscreen" aria-label="Fullscreen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" aria-label="Contact">
+      <div class="contact-container">
+        <h2 class="contact-title">Let's create something together.</h2>
+        <div class="contact-card">
+          <div class="card-glows" aria-hidden="true"></div>
+          <div class="contact-card-inner">
+            <h3 class="contact-name">Kaju Soni</h3>
+            <p class="contact-location">Bengaluru, India</p>
+            <p class="contact-intro">Video and motion work, from first brief to final frame.</p>
+            
+            <div class="contact-links">
+              <button class="contact-row copy-btn" data-copy="Kajusoni008@gmail.com">
+                <div class="icon-square">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <span>Kajusoni008@gmail.com</span>
+              </button>
+              
+              <button class="contact-row copy-btn" data-copy="+91 96200 63901">
+                <div class="icon-square">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
+                <span>+91 96200 63901</span>
+              </button>
+              
+              <a href="https://www.linkedin.com/in/kaju-soni-76522a16b" target="_blank" rel="noopener noreferrer" class="contact-row">
+                <div class="icon-square">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </div>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <div id="toast" class="toast" aria-hidden="true">Copied to clipboard</div>
+
+
+  <script src="script.js?v=15"></script>
+  <script src="ui.js?v=15"></script>
+  <script src="journey.js?v=15"></script>
+  <script src="works.js?v=15"></script>
+  <script src="ambient.js?v=15"></script>
+</body>
+</html>

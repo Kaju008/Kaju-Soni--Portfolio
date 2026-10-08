@@ -1,0 +1,110 @@
+:root {
+  --bg: #000000;
+  --text: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.72);
+  --text-muted: rgba(255, 255, 255, 0.50);
+  --accent: #FF5A36;
+  --accent-soft: rgba(255, 90, 54, 0.16);
+  --glow-magenta: #EC4899;
+  --glow-violet: #8B5CF6;
+  --glass-bg: rgba(12, 6, 18, 0.46);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --panel-radius: 36px;
+  --panel-blur: 22px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  
+  --progress: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scroll track: defines scrubbing distance */
+.scroll-track {
+  position: relative;
+  width: 100%;
+  height: 350vh;
+}
+
+/* Fixed canvas viewport pinning to screen */
+.canvas-viewport {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+}
+
+#sequence-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Sleek subtle scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Dim overlay for canvas */
+.canvas-dim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+/* Hero scrim gradient */
+.hero-scrim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 35%, transparent 62%);
+  z-index: 2;
+  pointer-events: none;
+  opacity: 1;
+  will-change: opacity;
+  transition: opacity 0.4s var(--ease-out);
+}
