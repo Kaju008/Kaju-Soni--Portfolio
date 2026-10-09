@@ -79,7 +79,9 @@
 
   function updateScroll() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    // The Work section adds extra scroll length for its timeline; leave it out so
+    // the hero/About timing stays the same.
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight - (window.__worksPinExtra || 0);
     const progress = maxScroll > 0 ? Math.min(Math.max(scrollTop / maxScroll, 0), 1) : 0;
     targetFrame = progress * (TOTAL_FRAMES - 1);
     window.__scrollProgress = progress; // read by ui.js

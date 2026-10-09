@@ -7,14 +7,14 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   
   <link rel="preload" as="image" href="frames/desktop/001.webp" media="(min-aspect-ratio: 1/1)">
   <link rel="preload" as="image" href="frames/mobile/001.webp" media="(max-aspect-ratio: 1/1)">
   <link rel="preload" as="image" href="assets/about-me.webp">
 
-  <link rel="stylesheet" href="style.css?v=18">
-  <link rel="stylesheet" href="ui.css?v=18">
+  <link rel="stylesheet" href="style.css?v=19">
+  <link rel="stylesheet" href="ui.css?v=19">
 </head>
 <body>
   <!-- Minimalist load progress indicator -->
@@ -210,20 +210,75 @@
         <div class="works-divider"></div>
         <div class="works-meta">
           <span class="works-label">SELECTED WORK &middot; 2024&ndash;2026</span>
-          <span class="works-counter" id="works-counter">01 / 21</span>
+          <span class="works-counter">21 clips</span>
         </div>
       </div>
       
-      <div class="carousel-container" id="carousel-container">
-        <div class="carousel-track" id="carousel-track">
-          <div class="carousel-track-inner" id="carousel-track-inner">
-            <!-- Cards populated by works.js -->
+      <!-- Editor timeline: scroll drives the playhead -->
+      <div class="tl-pin" id="tl-pin">
+        <div class="tl-stage" id="tl-stage">
+          <div class="tl-top">
+            <div class="tl-info tl-info-left">
+              <span class="tl-kicker">Now playing</span>
+              <div class="tl-count"><span id="tl-count-cur">01</span><span class="tl-count-total">/ <span id="tl-count-total">21</span></span></div>
+              <div class="tl-meta" id="tl-meta">Instagram Reel</div>
+            </div>
+
+            <div class="tl-monitor" id="tl-monitor" role="button" tabindex="0" aria-label="Play this video">
+              <div class="tl-frame" id="tl-frame">
+                <img class="tl-img tl-img-base" id="tl-img" alt="" decoding="async">
+                <img class="tl-img tl-img-r" alt="" aria-hidden="true">
+                <img class="tl-img tl-img-c" alt="" aria-hidden="true">
+              </div>
+              <div class="tl-grain" aria-hidden="true"></div>
+              <div class="tl-scan" aria-hidden="true"></div>
+              <div class="tl-safe" aria-hidden="true"></div>
+              <div class="tl-hud tl-hud-top" aria-hidden="true">
+                <span class="tl-rec"><i></i>PGM</span>
+                <span class="tl-tc" id="tl-tc">00:00:00:00</span>
+              </div>
+              <div class="tl-hud tl-hud-bottom" aria-hidden="true">
+                <span id="tl-clipname">Work 01</span>
+                <span>1080&times;1920 &middot; 25p</span>
+              </div>
+              <div class="tl-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+
+            <div class="tl-info tl-info-right">
+              <div class="tl-nav">
+                <button class="tl-btn" id="tl-prev" aria-label="Previous video"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+                <button class="tl-btn" id="tl-next" aria-label="Next video"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+              </div>
+              <button class="tl-watch" id="tl-watch">Watch <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+              <span class="tl-hint">Scroll to scrub</span>
+            </div>
+          </div>
+
+          <div class="tl-panel">
+            <div class="tl-toolbar" aria-hidden="true">
+              <span class="tl-seq"><i></i>Sequence &middot; Selected Work</span>
+              <span class="tl-tc tl-tc-small" id="tl-tc2">00:00:00:00</span>
+              <span class="tl-tools"><b></b><b></b><b></b></span>
+            </div>
+            <div class="tl-body">
+              <div class="tl-labels" aria-hidden="true">
+                <span class="tl-l-ruler"></span><span>V2</span><span>V1</span><span>A1</span>
+              </div>
+              <div class="tl-viewport" id="tl-viewport">
+                <div class="tl-strip" id="tl-strip">
+                  <div class="tl-ruler" id="tl-ruler"></div>
+                  <div class="tl-track tl-v2" id="tl-v2"></div>
+                  <div class="tl-track tl-v1" id="tl-v1"></div>
+                  <div class="tl-track tl-a1" id="tl-a1"></div>
+                </div>
+                <div class="tl-playhead" aria-hidden="true"><span></span></div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="custom-cursor" id="custom-cursor">PLAY</div>
       </div>
-      
-      <div class="carousel-progress-track"><div class="carousel-progress-line-fill"></div></div>
 
       <div class="archive-cta-wrapper">
         <p class="archive-cta-text">Still scrolling? There's more.</p>
@@ -296,10 +351,10 @@
   <div id="toast" class="toast" aria-hidden="true">Copied to clipboard</div>
 
 
-  <script src="script.js?v=18"></script>
-  <script src="ui.js?v=18"></script>
-  <script src="journey.js?v=18"></script>
-  <script src="works.js?v=18"></script>
-  <script src="ambient.js?v=18"></script>
+  <script src="script.js?v=19"></script>
+  <script src="ui.js?v=19"></script>
+  <script src="journey.js?v=19"></script>
+  <script src="works.js?v=19"></script>
+  <script src="ambient.js?v=19"></script>
 </body>
 </html>
