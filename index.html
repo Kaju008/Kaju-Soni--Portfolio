@@ -9,8 +9,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="style.css?v=16">
-  <link rel="stylesheet" href="ui.css?v=16">
+  <link rel="preload" as="image" href="frames/desktop/001.webp" media="(min-aspect-ratio: 1/1)">
+  <link rel="preload" as="image" href="frames/mobile/001.webp" media="(max-aspect-ratio: 1/1)">
+  <link rel="preload" as="image" href="assets/about-me.webp">
+
+  <link rel="stylesheet" href="style.css?v=17">
+  <link rel="stylesheet" href="ui.css?v=17">
 </head>
 <body>
   <!-- Minimalist load progress indicator -->
@@ -105,7 +109,7 @@
         <div class="panel-inner">
           <div class="about-image-col">
             <div class="image-wrapper" id="about-image-wrapper">
-              <img src="assets/about-me.png" alt="Kaju Soni in sunglasses sitting casually on huge red 3D letters that spell About Me" id="about-image" loading="eager" decoding="async">
+              <img src="assets/about-me.webp" width="1024" height="576" alt="Kaju Soni in sunglasses sitting casually on huge red 3D letters that spell About Me" id="about-image" loading="eager" decoding="async">
               <div class="contact-shadow" id="contact-shadow"></div>
             </div>
           </div>
@@ -201,7 +205,7 @@
       
       <div class="works-header-area">
         <div class="works-header-img-wrapper">
-          <img src="assets/my-works.png?v=2" alt="My Works" class="my-works-header">
+          <img src="assets/my-works.webp" width="1024" height="348" loading="lazy" decoding="async" alt="My Works" class="my-works-header">
         </div>
         <div class="works-divider"></div>
         <div class="works-meta">
@@ -292,10 +296,10 @@
   <div id="toast" class="toast" aria-hidden="true">Copied to clipboard</div>
 
 
-  <script src="script.js?v=15"></script>
-  <script src="ui.js?v=15"></script>
-  <script src="journey.js?v=15"></script>
-  <script src="works.js?v=15"></script>
-  <script src="ambient.js?v=15"></script>
+  <script src="script.js?v=17"></script>
+  <script src="ui.js?v=17"></script>
+  <script src="journey.js?v=17"></script>
+  <script src="works.js?v=17"></script>
+  <script src="ambient.js?v=17"></script>
 </body>
 </html>

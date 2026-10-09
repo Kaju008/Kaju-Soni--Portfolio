@@ -40,26 +40,30 @@
 
   // --- Loader & Initial Intro ---
   let isReady = false;
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (mutation.target.classList.contains('hidden')) {
-        setTimeout(() => {
-          header.classList.add('visible');
-          hero.classList.add('hero-revealed');
-          
-          setTimeout(() => {
-            aboutImageWrapper.classList.add('levitate');
-            aboutImage.classList.add('levitate-tilt');
-            document.getElementById('contact-shadow').classList.add('levitate');
-          }, 1000);
-          
-          isReady = true;
-          observer.disconnect();
-        }, 300);
+  function revealIntro() {
+    if (isReady) return;
+    isReady = true;
+    setTimeout(() => {
+      header.classList.add('visible');
+      hero.classList.add('hero-revealed');
+      setTimeout(() => {
+        aboutImageWrapper.classList.add('levitate');
+        aboutImage.classList.add('levitate-tilt');
+        document.getElementById('contact-shadow').classList.add('levitate');
+      }, 1000);
+    }, 300);
+  }
+  // The loader hides as soon as the first animation frame is on screen.
+  // It can happen before this script runs, so check first, then watch.
+  if (!loaderContainer || loaderContainer.classList.contains('hidden')) {
+    revealIntro();
+  } else {
+    const observer = new MutationObserver(() => {
+      if (loaderContainer.classList.contains('hidden')) {
+        observer.disconnect();
+        revealIntro();
       }
     });
-  });
-  if (loaderContainer) {
     observer.observe(loaderContainer, { attributes: true, attributeFilter: ['class'] });
   }
 
@@ -156,6 +160,8 @@
     });
   });
 
+  const isMobileLayout = window.matchMedia('(max-width: 767px)');
+
   // --- Main Animation Loop ---
   let lastProgress = -1;
   let textRevealed = false;
@@ -179,7 +185,8 @@
       const heroY = mapRange(heroExitT, 0, 1, 0, -60);
       const heroOpacity = 1 - heroExitT;
       
-      heroText.style.transform = `translateY(calc(-52% + ${heroY}px))`;
+      const heroBase = isMobileLayout.matches ? '0%' : '-52%';
+      heroText.style.transform = `translateY(calc(${heroBase} + ${heroY}px))`;
       heroText.style.opacity = heroOpacity;
       if (scrollCue) scrollCue.style.opacity = 1 - mapRange(progress, 0.0, 0.05, 0, 1);
       heroScrim.style.opacity = heroOpacity;
