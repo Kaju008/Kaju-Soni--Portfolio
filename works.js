@@ -165,13 +165,14 @@ document.addEventListener("DOMContentLoaded", () => {
   let isDragging = false;
   let isPointerDown = false;
   let pointerDownTime = 0;
+  let downX = 0, downY = 0;
   const carouselContainer = document.getElementById('carousel-container');
   
   carouselContainer.addEventListener('pointerdown', e => {
     isPointerDown = true;
     isDragging = false;
-    startX = e.clientX;
-    startY = e.clientY;
+    startX = downX = e.clientX;
+    startY = downY = e.clientY;
     pointerDownTime = Date.now();
     carouselContainer.style.cursor = 'grabbing';
   });
@@ -179,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!isPointerDown) return;
     const diffX = e.clientX - startX;
     const diffY = e.clientY - startY;
-    if (!isDragging && (Math.abs(diffX) > 6 || Math.abs(diffY) > 6)) {
+    if (!isDragging && Math.abs(diffX) > 12 && Math.abs(diffX) > Math.abs(diffY)) {
       isDragging = true;
       carouselContainer.setPointerCapture(e.pointerId);
     }
@@ -190,9 +191,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   const handlePointerUp = e => {
+    if (!isPointerDown) return;
     isPointerDown = false;
     carouselContainer.style.cursor = '';
-    if (!isDragging) {
+    const moved = Math.hypot(e.clientX - downX, e.clientY - downY);
+    // A tap opens the video; a drag or a page scroll (pointercancel) does not.
+    if (e.type === 'pointerup' && !isDragging && moved < 14) {
       // It's a click
       const card = e.target.closest('.carousel-card');
       if (card) {
@@ -340,7 +344,9 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const iframe = document.createElement('iframe');
     iframe.allowFullscreen = true;
-    iframe.allow = "autoplay; fullscreen";
+    iframe.allow = "autoplay; fullscreen; encrypted-media; picture-in-picture; clipboard-write";
+    iframe.referrerPolicy = "strict-origin-when-cross-origin";
+    iframe.title = "Video player";
     
     const tapHint = document.getElementById('lightbox-tap-hint');
     

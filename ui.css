@@ -815,7 +815,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
   /* About panel: content flows and scrolls inside the card instead of being cut off */
   .about-panel {
-    overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
     background: radial-gradient(120% 60% at 0% 0%, rgba(139,92,246,0.10), transparent 60%), rgba(6, 4, 12, 0.96);
     border: 1px solid rgba(255,255,255,0.10);
   }
@@ -855,6 +855,13 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 }
 /* Safety net on any desktop size: if text still doesn't fit, it scrolls inside the card */
 @media (min-width: 768px) {
-  .about-text-col { max-height: 100%; overflow-y: auto; scrollbar-width: none; overscroll-behavior: contain; }
+  .about-text-col {
+    max-height: 100%; overflow-y: auto; scrollbar-width: none;
+    justify-content: flex-start; padding: 4px 0;
+  }
+  /* Auto margins centre the text when it fits, and collapse to zero when it
+     doesn't, so the headline can never be pushed above the top edge. */
+  .about-text-col > :first-child { margin-top: auto; }
+  .about-text-col > :last-child { margin-bottom: auto; }
   .about-text-col::-webkit-scrollbar { display: none; }
 }
